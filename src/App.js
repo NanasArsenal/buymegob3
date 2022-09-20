@@ -4,7 +4,7 @@ import portrait from './assets/portrait.jpeg'
 
 function App() {
   return (
-    <div className="bg-blue-100 h-screen flex justify-center py-10">
+    <div className="bg-blue-100 h-screen flex justify-center py-2">
        <Card>
          <div className="busness-card">
             <div className=" bg-blue-300 w-[320px] md:w-[350px] h-[140px] relative flex justify-center">
