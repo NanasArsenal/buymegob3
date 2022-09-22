@@ -30,7 +30,7 @@ function App() {
              <div className="flex  justify-center mt-5">
                 <button onClick={(e)=> setOpenModal(true)} >
                   <div className=" border border-1 border-black px-5 align-middle w-full h-[50px] py-3">      
-                        Buy me a pack Gob3 <span>🥘</span>
+                        Buy me a pack of Gob3 <span>🥘</span>
                   </div>
                 </button>
               </div>
@@ -50,6 +50,7 @@ export default App;
 
 
 const PaymentModal = ({open,close,}) => {
+  const [email, setEmail] = useState("");
   const [packs ,setPacks] = useState(0);
   let price = packs*10;
  
@@ -64,6 +65,7 @@ const PaymentModal = ({open,close,}) => {
     paystack.newTransaction({
       key:"pk_live_dce275894c6952273b938d73440b1521f4edbf3a",
       amount:price*100,
+      email,
       firstname,
       lastname,
       onSuccess(transaction){
@@ -95,6 +97,10 @@ const PaymentModal = ({open,close,}) => {
               <p onClick={close} className=' cursor-pointer text-slate-400 font-bold '>x</p>
             </div>
 
+            <div className='title text-left'>
+               <p className='font-bold text-[14px]'>Email</p>
+                <input type="text" name="" required value={email} onChange={(e)=> setEmail(e.target.value)} placeholder={"Email"} className='outline-none  text-[14px] border-[2.5px] h-9 px-2 mt-2 w-[250px] md:w-[450px] border-slate-400' />
+            </div>
 
             <div className='title text-left'>
                <p className='font-bold text-[14px]'>How many packs</p>
